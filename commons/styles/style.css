@@ -1,0 +1,59 @@
+html, body { height: 100%; }
+
+body {
+	background-color: #c6e4c6;
+	color: #FFFFFF;	
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;	
+}
+
+#notice {
+    width:467px;    
+    height:105px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-52px;
+    margin-left:-233px;
+	display: none;      
+}
+
+#header {
+	position: absolute;
+	top: 23px;
+	left: 52px;
+	display: none;   	
+}
+
+#play {
+    width:610px;    
+    height:46px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:220px;
+    margin-left:-305px;
+	display: none; 
+}
+
+.box1 .front { background: rgba(128,194,62,0.8); }
+.box1 .back { background: rgba(230,229,12,0.2); }
+.box1 .left { background: rgba(174,210,39,0.5); }
+.box1 .right { background: rgba(174,210,39,0.5); }
+.box1 .bottom { background: rgba(174,210,39,0.5); }
+.box1 .top { background: rgba(174,210,39,0.5); }
+
+.food .front { background: rgba(238,133,157,0.8); }
+.food .back { background: rgba(238,133,157,0.2); }
+.food .left { background: rgba(238,133,157,0.5); }
+.food .right { background: rgba(238,133,157,0.5); }
+.food .bottom { background: rgba(238,133,157,0.5); }
+.food .top { background: rgba(238,133,157,0.5); }
+
+.wall .front { background: rgba(70,147,208,0.8); }
+.wall .back { background: rgba(0,0,0,0); }
+.wall .left { background: rgba(0,0,0,0); }
+.wall .right { background: rgba(0,0,0,0); }
+.wall .bottom { background: rgba(0,0,0,0); }
+.wall .top { background: rgba(0,0,255,0); }
