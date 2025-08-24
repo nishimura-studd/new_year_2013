@@ -57,3 +57,178 @@ body {
 .wall .right { background: rgba(0,0,0,0); }
 .wall .bottom { background: rgba(0,0,0,0); }
 .wall .top { background: rgba(0,0,255,0); }
+
+/* Mobile Controls - Hidden by default */
+#mobile-controls {
+	display: none;
+	opacity: 0;
+	position: fixed;
+	top: 65%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	z-index: 1000;
+	transition: opacity 1s ease-in-out;
+}
+
+/* D-Pad Styling */
+#d-pad {
+	display: inline-block;
+	position: relative;
+	width: 300px;
+	height: 300px;
+	margin-bottom: 40px;
+}
+
+.control-btn {
+	position: absolute;
+	background: rgba(174, 210, 39, 0.8);
+	border: 4px solid rgba(128, 194, 62, 1);
+	border-radius: 16px;
+	font-size: 40px;
+	font-weight: bold;
+	color: rgba(70, 147, 208, 1);
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	transition: all 0.1s ease;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.control-btn:active {
+	background: rgba(128, 194, 62, 1);
+	border-color: rgba(174, 210, 39, 1);
+	color: white;
+	transform: scale(0.95);
+}
+
+#btn-up {
+	width: 80px;
+	height: 80px;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#btn-down {
+	width: 80px;
+	height: 80px;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.d-pad-middle {
+	position: absolute;
+	top: 110px;
+	left: 0;
+	width: 300px;
+	height: 80px;
+}
+
+#btn-left {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 80px;
+	height: 80px;
+}
+
+#btn-right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 80px;
+	height: 80px;
+}
+
+.d-pad-center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 50px;
+	height: 50px;
+	background: rgba(128, 194, 62, 0.3);
+	border-radius: 50%;
+	border: 3px solid rgba(70, 147, 208, 0.8);
+}
+
+/* Start Button */
+.start-btn {
+	background: rgba(238, 133, 157, 0.9);
+	border: 4px solid rgba(238, 133, 157, 1);
+	border-radius: 20px;
+	padding: 18px 36px;
+	font-size: 28px;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	transition: all 0.1s ease;
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+	display: block;
+	margin: 0 auto;
+}
+
+.start-btn:active {
+	background: rgba(238, 133, 157, 1);
+	border-color: rgba(200, 100, 140, 1);
+	transform: scale(0.95);
+}
+
+/* Mobile styles for smaller screens or mobile devices */
+@media screen and (max-width: 768px), 
+       screen and (max-device-width: 768px),
+       (orientation: portrait) and (max-width: 1024px) {
+	
+	/* Allow scrolling on mobile */
+	body {
+		overflow: visible;
+		min-height: 100vh;
+	}
+	
+	/* Make mobile controls available for display */
+	#mobile-controls {
+		display: block;
+		top: 68%;
+	}
+}
+
+/* Additional styles for very small screens */
+@media screen and (max-width: 480px) {
+	#mobile-controls {
+		top: 70%;
+	}
+	
+	#d-pad {
+		width: 240px;
+		height: 240px;
+		margin-bottom: 30px;
+	}
+	
+	#btn-up, #btn-down, #btn-left, #btn-right {
+		width: 60px;
+		height: 60px;
+		font-size: 32px;
+	}
+	
+	.d-pad-middle {
+		top: 90px;
+		height: 60px;
+		width: 240px;
+	}
+	
+	.d-pad-center {
+		width: 40px;
+		height: 40px;
+	}
+	
+	.start-btn {
+		padding: 15px 30px;
+		font-size: 24px;
+	}
+}

@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" /> -->
 		<!-- og tags -->
 		<meta property="og:title" content="RETURN TO CLASSIC SNAKE GAME! 2013"/> 
 		<meta property="og:description" content="年賀コンテンツのSNAKE GAMEです。"/> 	
@@ -31,6 +32,20 @@
 		</div>	
 		<div id="play">
 			<img src="./images/play.png" />		
+		</div>
+		
+		<!-- Mobile Controls (shown only on mobile) -->
+		<div id="mobile-controls">
+			<div id="d-pad">
+				<button id="btn-up" class="control-btn" data-direction="1">↑</button>
+				<div class="d-pad-middle">
+					<button id="btn-left" class="control-btn" data-direction="0">←</button>
+					<div class="d-pad-center"></div>
+					<button id="btn-right" class="control-btn" data-direction="2">→</button>
+				</div>
+				<button id="btn-down" class="control-btn" data-direction="3">↓</button>
+			</div>
+			<button id="mobile-start" class="start-btn">START</button>
 		</div>
 		<script type="text/javascript" src="./commons/scripts/index.js"></script>	
 		<script type="text/javascript">		

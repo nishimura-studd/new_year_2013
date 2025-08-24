@@ -78,6 +78,8 @@ function init()
 {
 	stage = Sprite3D.stage();
 	//
+	initMobileControls();
+	//
 	startNotice();		
 }
 
@@ -208,7 +210,9 @@ function run_3()
 		//
 		$("#header").fadeIn(1000);			
 		//
-		$("#play").fadeIn(1000);								
+		$("#play").fadeIn(1000);
+		//
+		showMobileControls();								
 	}
 }
 
@@ -340,4 +344,93 @@ function placeFood(foodMC)
 	foodMC.position(xFood*blockSize, yFood*blockSize, 0).update();
 	//
 	map[xFood][yFood] = foodMC;
+}
+
+// Mobile Controls Functions
+function initMobileControls()
+{
+	// Check if mobile device
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+	              window.innerWidth <= 768 || 
+	              window.screen.width <= 768;
+	
+	if (isMobile) {
+		// Direction buttons - touchstart
+		$('.control-btn').bind('touchstart', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			
+			var direction = parseInt($(this).attr('data-direction'));
+			handleDirectionInput(direction);
+		});
+		
+		// Direction buttons - mousedown (for desktop testing)
+		$('.control-btn').bind('mousedown', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			
+			var direction = parseInt($(this).attr('data-direction'));
+			handleDirectionInput(direction);
+		});
+		
+		// Start button - touchstart
+		$('#mobile-start').bind('touchstart', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			
+			handleStartInput();
+		});
+		
+		// Start button - mousedown (for desktop testing)
+		$('#mobile-start').bind('mousedown', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			
+			handleStartInput();
+		});
+		
+		// Prevent default touch behaviors
+		$('#mobile-controls').bind('touchstart', function(e) {
+			e.preventDefault();
+		});
+		
+		$('#mobile-controls').bind('touchmove', function(e) {
+			e.preventDefault();
+		});
+		
+		$('#mobile-controls').bind('touchend', function(e) {
+			e.preventDefault();
+		});
+	}
+}
+
+function handleDirectionInput(direction)
+{
+	// Same logic as keyboard input for arrow keys (keyCode 37-40 maps to direction 0-3)
+	if (timerID != undefined) {
+		if (direction != turnQueue[0]) {
+			turnQueue.unshift(direction);
+		}
+	}
+}
+
+function handleStartInput()
+{
+	// Same logic as spacebar input
+	if (!gameRunning) {
+		startGame();
+	}
+}
+
+function showMobileControls()
+{
+	// Check if mobile device
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+	              window.innerWidth <= 768 || 
+	              window.screen.width <= 768;
+	
+	if (isMobile) {
+		// Fade in mobile controls
+		$("#mobile-controls").css('opacity', '1');
+	}
 }
